@@ -1,0 +1,76 @@
+{
+  "_doc": "Hand-written specification of the 13 element roles Quoro knows. 'specs' describe, per role, which element feature combinations belong to it; src/dataset.js samples labelled training examples from them (the training set is generated, nothing is downloaded). Numeric ranges are closed [lo, hi]; open bounds are written with a 1e-7 offset. Unlisted booleans default to false for 'line' and 'text', and to random for 'visible'.",
+  "roles": {
+    "title": {
+      "description": "Slide headline: a title or centred-title placeholder holding text.",
+      "animation": "up",
+      "specs": [{ "type": "shape", "text": true, "ph": ["title"] }]
+    },
+    "subtitle": {
+      "description": "Secondary headline under a title (subtitle placeholder with text).",
+      "animation": "up",
+      "specs": [{ "type": "shape", "text": true, "ph": ["subTitle"] }]
+    },
+    "body": {
+      "description": "Main text placeholder (bullets / paragraphs) with no box of its own.",
+      "animation": "left",
+      "specs": [{ "type": "shape", "text": true, "visible": false, "ph": ["other"] }]
+    },
+    "text": {
+      "description": "Free text box without a box, fill or outline, not tied to a placeholder.",
+      "animation": "up",
+      "specs": [{ "type": "shape", "text": true, "visible": false, "ph": ["none"] }]
+    },
+    "label": {
+      "description": "Text inside a visible shape: a card, badge, button or callout.",
+      "animation": "zoom",
+      "specs": [{ "type": "shape", "text": true, "visible": true, "ph": ["other", "none"], "area": [0.0005, 0.6] }]
+    },
+    "backdropLabel": {
+      "description": "Text on a visible shape that covers most of the slide (a full-bleed panel).",
+      "animation": "fade",
+      "specs": [{ "type": "shape", "text": true, "visible": true, "ph": ["other", "none"], "area": [0.6000001, 1.3] }]
+    },
+    "shape": {
+      "description": "Decorative or illustrative shape without text: circles, icons built from shapes, blocks.",
+      "animation": "pop",
+      "specs": [{ "type": "shape", "text": false, "area": [0.0005, 0.6], "aspect": [0.125, 8] }]
+    },
+    "rule": {
+      "description": "Line, connector, arrow or very thin bar used as a divider or a link between items.",
+      "animation": "wipe",
+      "specs": [
+        { "type": "shape", "line": true, "text": "any" },
+        { "type": "shape", "text": false, "area": [0.0005, 0.6], "aspect": [[8.0000001, 50], [0.02, 0.1249999]] }
+      ]
+    },
+    "picture": {
+      "description": "Photograph, logo, screenshot or other image that does not fill the slide.",
+      "animation": "zoom",
+      "specs": [{ "type": "pic", "area": [0.0005, 0.85] }]
+    },
+    "backdrop": {
+      "description": "Full-bleed background picture or shape behind everything else.",
+      "animation": "fade",
+      "specs": [
+        { "type": "pic", "area": [0.8500001, 1.3] },
+        { "type": "shape", "text": false, "area": [0.6000001, 1.3] }
+      ]
+    },
+    "table": {
+      "description": "Grid of rows and columns.",
+      "animation": "rows",
+      "specs": [{ "type": "table" }]
+    },
+    "chart": {
+      "description": "Bar, line, area, pie or scatter chart.",
+      "animation": "grow",
+      "specs": [{ "type": "chart" }]
+    },
+    "footer": {
+      "description": "Date, footer text or slide number placeholder.",
+      "animation": "fade",
+      "specs": [{ "type": "shape", "text": true, "ph": ["footer"] }]
+    }
+  }
+}

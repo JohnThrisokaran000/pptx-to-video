@@ -1,0 +1,38 @@
+{
+  "name": "pptx-to-video",
+  "version": "0.1.0",
+  "description": "Turn a .pptx into an animated MP4, with Quoro AI: a fully local deck assistant",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/make-sample.js && node --test test/quoro.test.js",
+    "test:video": "node test/make-sample.js && node bin/cli.js test/sample.pptx -o test/sample.mp4 --snapshots test/snap --quoro",
+    "quoro": "node bin/quoro.js",
+    "quoro:build": "node bin/quoro.js build"
+  },
+  "type": "module",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "fast-xml-parser": "^5.11.2",
+    "ffmpeg-static": "^5.3.0",
+    "jszip": "^3.10.2",
+    "puppeteer-core": "^25.15.0"
+  },
+  "devDependencies": {
+    "pptxgenjs": "^4.0.1"
+  },
+  "bin": {
+    "pptx-to-video": "bin/cli.js",
+    "quoro": "bin/quoro.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "files": [
+    "bin",
+    "src",
+    "quoro/src",
+    "quoro/data",
+    "quoro/model.json",
+    "README.md"
+  ]
+}
